@@ -44,11 +44,10 @@ test("renders a span for each genre",  () => {
 });
 
 test("renders the <NavBar /> component", async () => {
-  const router = createMemoryRouter(routes, {
-    initialEntries: [`/movie/1`]
-  })
-  render(
-      <RouterProvider router={router}/>
-  );
-  expect(await screen.findByRole("navigation")).toBeInTheDocument();
+  render(<RouterProvider router={router} />);
+  
+  const navBar = await screen.findByRole("navigation");
+  
+  expect(navBar).toBeInTheDocument();
 });
+
